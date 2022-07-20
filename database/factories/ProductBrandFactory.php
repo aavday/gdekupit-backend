@@ -19,7 +19,7 @@ class ProductBrandFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->words(),
+            'name' => fake()->sentence(3),
         ];
     }
 }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->unsignedBigInteger('parent_category_id')->index();
+            $table->unsignedBigInteger('parent_category_id')->nullable();
             $table->foreign('parent_category_id')->references('id')->on('product_categories');
         });
     }

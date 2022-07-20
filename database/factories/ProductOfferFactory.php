@@ -22,7 +22,7 @@ class ProductOfferFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->words(),
+            'name' => fake()->sentence(5),
             'price' => random_int(100, 200000),
             'product_id' => Product::factory(),
             'merchant_id' => ProductMerchant::factory(),

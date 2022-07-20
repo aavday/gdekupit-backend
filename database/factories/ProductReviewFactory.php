@@ -19,11 +19,11 @@ class ProductReviewFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->words(),
+            'name' => fake()->sentence(4),
             'review_text' => fake()->text(),
-            'pluses' => fake()->words(),
-            'minuses' => fake()->words(),
-            'conclusion' => fake()->words(5),
+            'pluses' => fake()->sentence(3),
+            'minuses' => fake()->sentence(3),
+            'conclusion' => fake()->sentence(5),
             'is_positive' => fake()->boolean(),
             'product_id' => Product::factory(),
             'user_id' => User::factory()
