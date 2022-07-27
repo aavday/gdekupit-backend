@@ -18,6 +18,9 @@ class ProductReviewFactory extends Factory
      */
     public function definition()
     {
+        $product = Product::query()->inRandomOrder()->first();
+        $user = User::query()->inRandomOrder()->first();
+
         return [
             'name' => fake()->sentence(4),
             'review_text' => fake()->text(),
@@ -25,8 +28,8 @@ class ProductReviewFactory extends Factory
             'minuses' => fake()->sentence(3),
             'conclusion' => fake()->sentence(5),
             'is_positive' => fake()->boolean(),
-            'product_id' => Product::factory(),
-            'user_id' => User::factory()
+            'product_id' => $product->id,
+            'user_id' => $user->id
         ];
     }
 }

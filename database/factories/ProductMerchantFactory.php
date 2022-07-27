@@ -17,7 +17,7 @@ class ProductMerchantFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->sentence(3),
+            'name' => ucfirst(fake()->words(2, true)),
             'merchant_website' => fake()->url(),
             'merchant_city' => fake()->city(),
         ];

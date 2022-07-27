@@ -20,11 +20,14 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
+        $brand = ProductBrand::query()->inRandomOrder()->first();
+        $category = ProductCategory::query()->inRandomOrder()->first();
+
         return [
-            'name' => fake()->sentence(3),
+            'name' => $brand->name . ' ' . fake()->words(2, true),
             'description' => fake()->text(),
-            'category_id' => ProductCategory::factory(),
-            'brand_id' => ProductBrand::factory()
+            'category_id' => $category->id,
+            'brand_id' => $brand->id
         ];
     }
 }
