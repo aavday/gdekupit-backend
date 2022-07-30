@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function index() {
         return ProductResource::collection(
-            Product::all()
+            Product::query()->with('offers')->get()
         );
     }
 }
