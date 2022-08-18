@@ -6,7 +6,7 @@ use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductMerchantResource extends JsonResource
+class ProductOfferShowResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,8 +19,11 @@ class ProductMerchantResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'merchant_website' => $this->merchant_website,
-            'merchant_city' => $this->merchant_city,
+            'slug' => $this->slug,
+            'price' => $this->price,
+            'product' => ProductIndexResource::collection($this->product),
+            'merchant' => ProductMerchantIndexResource::collection($this->merchant),
+            'color' => ProductColorResource::collection($this->color),
         ];
     }
 }

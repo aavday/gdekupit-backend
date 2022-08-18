@@ -25,4 +25,20 @@ class Product extends Model
     {
         return $this->hasMany(ProductOffer::class);
     }
+
+    public static function getMinPriceOfOffers($offers) {
+        if (!$offers) return null;
+
+        if ($offers) {
+            foreach ($offers as $key => $offer) {
+                if ($key === 0) {
+                    $priceFrom = $offer['price'];
+                } else if ($key > 0 && $offer['price'] < $priceFrom) {
+                    $priceFrom = $offer['price'];
+                }
+            }
+        }
+
+        return $priceFrom;
+    }
 }

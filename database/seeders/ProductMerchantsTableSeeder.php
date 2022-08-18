@@ -14,6 +14,6 @@ class ProductMerchantsTableSeeder extends Seeder
      */
     public function run()
     {
-        ProductMerchant::factory(20)->create();
+        ProductMerchant::factory(10)->create();
     }
 }

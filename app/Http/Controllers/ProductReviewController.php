@@ -13,4 +13,10 @@ class ProductReviewController extends Controller
             ProductReview::all()
         );
     }
+
+    public function show($slug) {
+        return ProductReviewResource::collection(
+            ProductReview::query()->where('slug', $slug)->get()
+        );
+    }
 }

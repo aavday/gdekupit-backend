@@ -14,6 +14,6 @@ class ProductColorsTableSeeder extends Seeder
      */
     public function run()
     {
-        ProductColor::factory(20)->create();
+        ProductColor::factory(10)->create();
     }
 }

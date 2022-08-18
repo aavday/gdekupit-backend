@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends Factory
@@ -20,9 +21,11 @@ class ProductReviewFactory extends Factory
     {
         $product = Product::query()->inRandomOrder()->first();
         $user = User::query()->inRandomOrder()->first();
+        $name = fake()->sentence(4);
 
         return [
-            'name' => fake()->sentence(4),
+            'name' => $name,
+            'slug' => Str::slug($name),
             'review_text' => fake()->text(),
             'pluses' => fake()->sentence(3),
             'minuses' => fake()->sentence(3),

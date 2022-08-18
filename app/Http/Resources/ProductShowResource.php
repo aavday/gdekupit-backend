@@ -2,11 +2,12 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Product;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductReviewResource extends JsonResource
+class ProductShowResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,13 +21,11 @@ class ProductReviewResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
-            'review_text' => $this->review_text,
-            'pluses' => $this->pluses,
-            'minuses' => $this->minuses,
-            'conclusion' => $this->conclusion,
-            'is_positive' => $this->is_positive,
-            'product_id' => $this->product_id,
-            'user_id' => $this->user_id
+            'description' => $this->description,
+            'price_from' => Product::getMinPriceOfOffers($this->offers),
+            'offers' => ProductOfferIndexResource::collection($this->offers),
+            'brand' => ProductBrandIndexResource::collection($this->brand),
+            'category' => ProductCategoryIndexResource::collection($this->category)
         ];
     }
 }

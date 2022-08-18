@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends Factory
@@ -16,8 +17,11 @@ class ProductColorFactory extends Factory
      */
     public function definition()
     {
+        $name = fake()->colorName();
+
         return [
-            'name' => fake()->colorName(),
+            'name' => $name,
+            'slug' => Str::slug($name),
             'color_hex' => fake()->hexColor(),
         ];
     }

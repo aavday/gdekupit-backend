@@ -13,4 +13,10 @@ class ProductColorController extends Controller
             ProductColor::all()
         );
     }
+
+    public function show($slug) {
+        return ProductColorResource::collection(
+            ProductColor::query()->where('slug', $slug)->get()
+        );
+    }
 }

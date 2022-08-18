@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('product_merchants', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('slug')->unique();
             $table->string('name');
             $table->string('merchant_website');
             $table->string('merchant_city');
