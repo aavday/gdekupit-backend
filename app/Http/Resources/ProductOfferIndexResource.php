@@ -18,6 +18,7 @@ class ProductOfferIndexResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'slug' => $this->slug,
             'name' => $this->name,
             'price' => $this->price,
             'product_id' => $this->product_id,

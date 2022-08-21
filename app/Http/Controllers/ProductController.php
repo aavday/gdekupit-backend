@@ -16,8 +16,8 @@ class ProductController extends Controller
     }
 
     public function show($slug) {
-        return ProductShowResource::collection(
-            Product::query()->where('slug', $slug)->get()
+        return ProductShowResource::make(
+            Product::query()->where('slug', $slug)->first()
         );
     }
 }

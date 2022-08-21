@@ -24,8 +24,8 @@ class ProductShowResource extends JsonResource
             'description' => $this->description,
             'price_from' => Product::getMinPriceOfOffers($this->offers),
             'offers' => ProductOfferIndexResource::collection($this->offers),
-            'brand' => ProductBrandIndexResource::collection($this->brand),
-            'category' => ProductCategoryIndexResource::collection($this->category)
+            'brand' => ProductBrandIndexResource::make($this->brand),
+            'category' => ProductCategoryIndexResource::make($this->category)
         ];
     }
 }

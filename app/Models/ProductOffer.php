@@ -4,24 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ProductOffer extends Model
 {
     use HasFactory;
 
-    public function product(): HasOne
+    public function product(): BelongsTo
     {
-        return $this->hasOne(Product::class);
+        return $this->belongsTo(Product::class);
     }
 
-    public function merchant(): HasOne
+    public function merchant(): BelongsTo
     {
-        return $this->hasOne(ProductMerchant::class);
+        return $this->belongsTo(ProductMerchant::class);
     }
 
-    public function color(): HasOne
+    public function color(): BelongsTo
     {
-        return $this->hasOne(ProductColor::class);
+        return $this->belongsTo(ProductColor::class);
     }
 }

@@ -18,6 +18,7 @@ class ProductMerchantIndexResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'slug' => $this->slug,
             'name' => $this->name,
             'merchant_website' => $this->merchant_website,
             'merchant_city' => $this->merchant_city,

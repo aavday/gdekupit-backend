@@ -4,21 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Product extends Model
 {
     use HasFactory;
 
-    public function category(): HasOne
+    public function category(): BelongsTo
     {
-        return $this->hasOne(ProductCategory::class);
+        return $this->belongsTo(ProductCategory::class);
     }
 
-    public function brand(): HasOne
+    public function brand(): BelongsTo
     {
-        return $this->hasOne(ProductBrand::class);
+        return $this->belongsTo(ProductBrand::class);
     }
 
     public function offers(): HasMany
@@ -29,13 +29,13 @@ class Product extends Model
     public static function getMinPriceOfOffers($offers) {
         if (!$offers) return null;
 
-        if ($offers) {
-            foreach ($offers as $key => $offer) {
-                if ($key === 0) {
-                    $priceFrom = $offer['price'];
-                } else if ($key > 0 && $offer['price'] < $priceFrom) {
-                    $priceFrom = $offer['price'];
-                }
+        $priceFrom = 0;
+
+        foreach ($offers as $key => $offer) {
+            if ($key === 0) {
+                $priceFrom = $offer['price'];
+            } else if ($key > 0 && $offer['price'] < $priceFrom) {
+                $priceFrom = $offer['price'];
             }
         }
 
