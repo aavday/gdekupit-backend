@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductCategoryIndexResource;
+use App\Http\Resources\ProductCategoryShowResource;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,8 @@ class ProductCategoryController extends Controller
     }
 
     public function show($slug) {
-        return ProductCategoryIndexResource::collection(
-            ProductCategory::query()->where('slug', $slug)->get()
+        return ProductCategoryShowResource::make(
+            ProductCategory::query()->where('slug', $slug)->first()
         );
     }
 }
