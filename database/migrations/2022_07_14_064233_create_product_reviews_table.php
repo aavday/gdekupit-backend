@@ -21,8 +21,7 @@ return new class extends Migration
             $table->text('review_text');
             $table->text('pluses');
             $table->text('minuses');
-            $table->string('conclusion');
-            $table->boolean('is_positive');
+            $table->integer('rating');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->unsignedBigInteger('user_id');

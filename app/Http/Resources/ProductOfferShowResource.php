@@ -21,9 +21,9 @@ class ProductOfferShowResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'price' => $this->price,
-            'product' => ProductIndexResource::collection($this->product),
-            'merchant' => ProductMerchantIndexResource::collection($this->merchant),
-            'color' => ProductColorResource::collection($this->color),
+            'product' => ProductIndexResource::make($this->product),
+            'merchant' => ProductMerchantIndexResource::make($this->merchant),
+            'color' => ProductColorResource::make($this->color),
         ];
     }
 }

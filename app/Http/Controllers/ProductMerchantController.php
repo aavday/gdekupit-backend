@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductMerchantIndexResource;
+use App\Http\Resources\ProductMerchantShowResource;
 use App\Models\ProductMerchant;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,8 @@ class ProductMerchantController extends Controller
     }
 
     public function show($slug) {
-        return ProductBrandResource::collection(
-            ProductBrand::query()->where('slug', $slug)->get()
+        return ProductMerchantShowResource::make(
+            ProductMerchant::query()->where('slug', $slug)->first()
         );
     }
 }

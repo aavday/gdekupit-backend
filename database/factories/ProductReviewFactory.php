@@ -29,8 +29,7 @@ class ProductReviewFactory extends Factory
             'review_text' => fake()->text(),
             'pluses' => fake()->sentence(3),
             'minuses' => fake()->sentence(3),
-            'conclusion' => fake()->sentence(5),
-            'is_positive' => fake()->boolean(),
+            'rating' => fake()->numberBetween(0, 5),
             'product_id' => $product->id,
             'user_id' => $user->id
         ];

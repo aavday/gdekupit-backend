@@ -22,7 +22,7 @@ class ProductMerchantShowResource extends JsonResource
             'slug' => $this->slug,
             'merchant_website' => $this->merchant_website,
             'merchant_city' => $this->merchant_city,
-            'products' => ProductIndexResource::collection($this->products)
+            'product_offers' => ProductOfferIndexResource::collection($this->productOffers)
         ];
     }
 }

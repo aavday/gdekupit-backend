@@ -23,8 +23,7 @@ class ProductReviewResource extends JsonResource
             'review_text' => $this->review_text,
             'pluses' => $this->pluses,
             'minuses' => $this->minuses,
-            'conclusion' => $this->conclusion,
-            'is_positive' => $this->is_positive,
+            'rating' => $this->rating,
             'product_id' => $this->product_id,
             'user_id' => $this->user_id
         ];

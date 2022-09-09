@@ -26,6 +26,11 @@ class Product extends Model
         return $this->hasMany(ProductOffer::class);
     }
 
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(ProductReview::class);
+    }
+
     public static function getMinPriceOfOffers($offers) {
         if (!$offers) return null;
 

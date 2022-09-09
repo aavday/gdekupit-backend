@@ -10,8 +10,8 @@ class ProductMerchant extends Model
 {
     use HasFactory;
 
-    public function products(): HasMany
+    public function productOffers(): HasMany
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(ProductOffer::class, 'merchant_id');
     }
 }
