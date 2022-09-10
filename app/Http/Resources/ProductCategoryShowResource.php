@@ -21,6 +21,7 @@ class ProductCategoryShowResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
+            'child_categories' => ProductCategoryShowResource::collection($this->childCategories),
             'products' => ProductIndexResource::collection($this->products)
         ];
     }

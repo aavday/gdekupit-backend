@@ -20,4 +20,10 @@ class ProductCategoryController extends Controller
             ProductCategory::query()->where('slug', $slug)->first()
         );
     }
+
+    public function rootCategories() {
+        return ProductCategoryIndexResource::collection(
+            ProductCategory::query()->where('parent_category_id', null)->get()
+        );
+    }
 }

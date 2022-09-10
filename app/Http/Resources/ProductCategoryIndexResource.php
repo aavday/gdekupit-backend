@@ -21,6 +21,7 @@ class ProductCategoryIndexResource extends JsonResource
             'id' => $this->id,
             'slug' => $this->slug,
             'name' => $this->name,
+            'parent_category_id' => $this->parent_category_id
         ];
     }
 }

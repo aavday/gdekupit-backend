@@ -11,9 +11,9 @@ class ProductCategory extends Model
 {
     use HasFactory;
 
-    public function parentCategory(): BelongsTo
+    public function childCategories(): HasMany
     {
-        return $this->belongsTo(self::class);
+        return $this->hasMany(self::class, 'parent_category_id');
     }
 
     public function products(): HasMany
