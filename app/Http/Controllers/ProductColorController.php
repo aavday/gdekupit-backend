@@ -14,9 +14,15 @@ class ProductColorController extends Controller
         );
     }
 
-    public function show($slug) {
+    public function show($id) {
         return ProductColorResource::collection(
-            ProductColor::query()->where('slug', $slug)->get()
+            ProductColor::query()->where('id', $id)->firstOrFail()
+        );
+    }
+
+    public function showBySlug($slug) {
+        return ProductColorResource::collection(
+            ProductColor::query()->where('slug', $slug)->firstOrFail()
         );
     }
 }

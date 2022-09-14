@@ -15,9 +15,15 @@ class ProductOfferController extends Controller
         );
     }
 
-    public function show($slug) {
+    public function show($id) {
         return ProductOfferShowResource::make(
-            ProductOffer::query()->where('slug', $slug)->first()
+            ProductOffer::query()->where('id', $id)->firstOrFail()
+        );
+    }
+
+    public function showBySlug($slug) {
+        return ProductOfferShowResource::make(
+            ProductOffer::query()->where('slug', $slug)->firstOrFail()
         );
     }
 }

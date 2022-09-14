@@ -15,9 +15,15 @@ class ProductController extends Controller
         );
     }
 
-    public function show($slug) {
+    public function show($id) {
         return ProductShowResource::make(
-            Product::query()->where('slug', $slug)->first()
+            Product::query()->where('id', $id)->firstOrFail()
+        );
+    }
+
+    public function showBySlug($slug) {
+        return ProductShowResource::make(
+            Product::query()->where('slug', $slug)->firstOrFail()
         );
     }
 }

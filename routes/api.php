@@ -26,23 +26,30 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/products/', [ProductController::class, 'index']);
-Route::get('/products/{slug}', [ProductController::class, 'show']);
+Route::get('/products/{id}', [ProductController::class, 'show']);
+Route::get('/products-by-slug/{slug}', [ProductController::class, 'showBySlug']);
 
 Route::get('/product-brands/', [ProductBrandController::class, 'index']);
-Route::get('/product-brands/{slug}', [ProductBrandController::class, 'show']);
+Route::get('/product-brands/{id}', [ProductBrandController::class, 'show']);
+Route::get('/product-brands-by-slug/{slug}', [ProductBrandController::class, 'showBySlug']);
 
 Route::get('/product-categories/', [ProductCategoryController::class, 'index']);
 Route::get('/product-categories-root/', [ProductCategoryController::class, 'rootCategories']);
-Route::get('/product-categories/{slug}', [ProductCategoryController::class, 'show']);
+Route::get('/product-categories/{id}', [ProductCategoryController::class, 'show']);
+Route::get('/product-categories-by-slug/{slug}', [ProductCategoryController::class, 'showBySlug']);
 
 Route::get('/product-colors/', [ProductColorController::class, 'index']);
-Route::get('/product-colors/{slug}', [ProductColorController::class, 'show']);
+Route::get('/product-colors/{id}', [ProductColorController::class, 'show']);
+Route::get('/product-colors-by-slug/{slug}', [ProductColorController::class, 'showBySlug']);
 
 Route::get('/product-merchants/', [ProductMerchantController::class, 'index']);
-Route::get('/product-merchants/{slug}', [ProductMerchantController::class, 'show']);
+Route::get('/product-merchants/{id}', [ProductMerchantController::class, 'show']);
+Route::get('/product-merchants-by-slug/{slug}', [ProductMerchantController::class, 'showBySlug']);
 
 Route::get('/product-offers/', [ProductOfferController::class, 'index']);
-Route::get('/product-offers/{slug}', [ProductOfferController::class, 'show']);
+Route::get('/product-offers/{id}', [ProductOfferController::class, 'show']);
+Route::get('/product-offers-by-slug/{slug}', [ProductOfferController::class, 'showBySlug']);
 
 Route::get('/product-reviews/', [ProductReviewController::class, 'index']);
-Route::get('/product-reviews/{slug}', [ProductReviewController::class, 'show']);
+Route::get('/product-reviews/{id}', [ProductReviewController::class, 'show']);
+Route::get('/product-reviews-by-slug/{slug}', [ProductReviewController::class, 'showBySlug']);

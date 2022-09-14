@@ -14,9 +14,15 @@ class ProductReviewController extends Controller
         );
     }
 
-    public function show($slug) {
+    public function show($id) {
         return ProductReviewResource::collection(
-            ProductReview::query()->where('slug', $slug)->get()
+            ProductReview::query()->where('id', $id)->firstOrFail()
+        );
+    }
+
+    public function showBySlug($slug) {
+        return ProductReviewResource::collection(
+            ProductReview::query()->where('slug', $slug)->firstOrFail()
         );
     }
 }

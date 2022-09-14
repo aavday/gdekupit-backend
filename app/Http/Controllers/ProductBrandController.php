@@ -14,9 +14,15 @@ class ProductBrandController extends Controller
         );
     }
 
-    public function show($slug) {
+    public function show($id) {
         return ProductBrandIndexResource::collection(
-            ProductBrand::query()->where('slug', $slug)->get()
+            ProductBrand::query()->where('id', $id)->firstOrFail()
+        );
+    }
+
+    public function showBySlug($slug) {
+        return ProductBrandIndexResource::collection(
+            ProductBrand::query()->where('slug', $slug)->firstOrFail()
         );
     }
 }

@@ -15,9 +15,15 @@ class ProductMerchantController extends Controller
         );
     }
 
-    public function show($slug) {
+    public function show($id) {
         return ProductMerchantShowResource::make(
-            ProductMerchant::query()->where('slug', $slug)->first()
+            ProductMerchant::query()->where('id', $id)->firstOrFail()
+        );
+    }
+
+    public function showBySlug($slug) {
+        return ProductMerchantShowResource::make(
+            ProductMerchant::query()->where('slug', $slug)->firstOrFail()
         );
     }
 }
