@@ -32,7 +32,12 @@ class ProductCategoryShowResource extends JsonResource
             'child_categories' => ProductCategoryShowResource::collection($this->childCategories),
             'products' => ProductIndexResource::collection($this->products),
             'brands' => ($brandIds)
-                ? ProductBrandIndexResource::collection(ProductBrand::query()->where('id', '=', $brandIds)->get())
+                ? ProductBrandIndexResource::collection(
+                    ProductBrand::query()
+                        ->where('id', '=', $brandIds)
+                        ->has('products')
+                        ->get()
+                )
                 : null
         ];
     }
