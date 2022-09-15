@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductBrandIndexResource;
+use App\Http\Resources\ProductBrandShowResource;
 use App\Models\ProductBrand;
 use Illuminate\Http\Request;
 
@@ -15,13 +16,13 @@ class ProductBrandController extends Controller
     }
 
     public function show($id) {
-        return ProductBrandIndexResource::collection(
+        return ProductBrandShowResource::make(
             ProductBrand::query()->where('id', $id)->firstOrFail()
         );
     }
 
     public function showBySlug($slug) {
-        return ProductBrandIndexResource::collection(
+        return ProductBrandShowResource::make(
             ProductBrand::query()->where('slug', $slug)->firstOrFail()
         );
     }
